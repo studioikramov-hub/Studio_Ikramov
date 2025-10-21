@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description"
+    content="Фрилансер по веб-дизайну — Асадбек. Дизайн сайтов, UI/UX, графика. Примеры, цены, контакты." />
+  <meta name="author" content="Асадбек" />
+ <link rel="apple-touch-icon" href="logo.jpg">
+<link rel="icon" href="logo.jpg" type="image/jpeg">
+
+  <title>StudioIkramov</title>
+  <style>
+    /* ========================= Стили ========================= */
+    :root {
+      --bg: #0b0b0b;
+      --card-bg: rgba(0, 0, 0, 0.45);
+      --muted: #d0d0d0;
+      --accent1: #8a2be2;
+      --accent2: #ff4444;
+      --accent3: #3399ff;
+      --glass: rgba(255, 255, 255, 0.03);
+      --radius: 12px;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      --container: 1200px;
+      --header-h: 68px;
+      --transition: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px
+    }
+
+    p {
+      margin: 0 0 12px 0;
+      color: var(--muted)
+    }
+
+
+
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 18px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.36));
+      position: sticky;
+      top: 0;
+      z-index: 150;
+      height: var(--header-h);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+.logo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px; /* лёгкое округление */
+  overflow: hidden;
+  width: 100px; /* примерно как кнопка */
+  height: 44px; /* чуть выше, чтобы выглядело солидно */
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+}
+
+
+    header h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0.3px
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .btn,
+    .action-btn {
+      position: relative;
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 18px;
+      color: #fff;
+      font-weight: 700;
+      border: 0;
+      background: transparent;
+      overflow: visible;
+      transition: transform 0.18s cubic-bezier(.3, .7, .4, 1.5), box-shadow 0.18s ease;
+    }
+
+    .btn:hover,
+    .action-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .action-btn:hover {
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1.08);
+      }
+
+      50% {
+        transform: scale(1.12);
+      }
+
+      100% {
+        transform: scale(1.08);
+      }
+    }
+
+    .btn:active,
+    .action-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn::before,
+    .action-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      z-index: 1;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+      background-size: 200% 100%;
+      animation: shift 6s linear infinite;
+      filter: brightness(1.05);
+    }
+
+    .btn span,
+    .action-btn span {
+      position: relative;
+      z-index: 2
+    }
+
+    @keyframes shift {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    main {
+      min-height: calc(100vh - var(--header-h));
+      padding: 28px 20px;
+      max-width: var(--container);
+      margin: 0 auto
+    }
+
+    section {
+      max-width: var(--container);
+      margin: 0 auto 36px;
+      padding: 0 6px
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0 0 12px 0;
+      font-weight: 800;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6)
+    }
+
+    h1 {
+      font-size: 28px
+    }
+
+    h2 {
+      font-size: 22px;
+      color: var(--accent3)
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.18));
+      box-shadow: var(--shadow);
+    }
+
+    .hero .left h1 {
+      font-size: 30px
+    }
+
+    .hero .left p {
+      margin-top: 8px;
+      color: var(--muted)
+    }
+
+    .hero .actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.14));
+      padding: 14px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 12px
+    }
+
+    .card,
+    .service-item,
+    .portfolio-item,
+    .price-card,
+    .review {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: visible;
+      position: relative;
+      transition: transform .25s ease, box-shadow .25s ease;
+      padding: 0;
+    }
+
+    .card img,
+    .service-item img,
+    .portfolio-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius)
+    }
+
+    .card,
+    .service-item,
+    .portfolio-item,
+    .price-card,
+    .review {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    .card:hover,
+    .service-item:hover,
+    .portfolio-item:hover,
+    .price-card:hover,
+    .review:hover .portfolio-item:hover {
+      transform: scale(1.08);
+      /* чуть больше */
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .portfolio-item img {
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+      /* изображение тоже увеличивается */
+    }
+
+    .card::before,
+    .service-item::before,
+    .portfolio-item::before,
+    .price-card::before,
+    .review::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: inherit;
+      background: linear-gradient(270deg,
+          blue, purple, #ff0000, #ff00ff);
+      background-size: 600% 600%;
+      filter: blur(8px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      animation: rgbGlow 6s linear infinite;
+      z-index: 1;
+      /* 🔥 свечение сверху */
+      pointer-events: none;
+      /* не мешает кликам */
+    }
+
+    .card:hover::before,
+    .service-item:hover::before,
+    .portfolio-item:hover::before,
+    .price-card:hover::before,
+    .review:hover::before {
+      opacity: 1;
+    }
+
+    .card>*,
+    .service-item>*,
+    .portfolio-item>*,
+    .price-card>*,
+    .review>* {
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes rgbGlow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .service-desc,
+    .pdesc {
+      padding: 14px;
+      color: var(--muted)
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover
+    }
+
+    .action-btn {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 14px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      position: relative;
+      overflow: visible;
+      margin-top: 8px
+    }
+
+    .action-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+      background-size: 200% 100%;
+      z-index: 1;
+      animation: shift 5s linear infinite
+    }
+
+    .action-btn span {
+      position: relative;
+      z-index: 2;
+      padding: 3px 6px
+    }
+
+    .page {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .page.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* скролл наверх */
+    #toTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 14px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: #fff;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      transition: transform .18s ease
+    }
+
+    #toTop.show {
+      display: block
+    }
+
+    .logo {
+      /* белый фон */
+      padding: 6px;
+      /* чтобы текст не прилипал */
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-text {
+      position: absolute;
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      /* контрастный цвет */
+    }
+
+    header nav a.btn {
+      display: inline-block;
+      transition: transform 0.18s cubic-bezier(.3, .7, .4, 1.5), box-shadow 0.18s ease;
+    }
+
+    /* Hover — подпрыгивание */
+    header nav a.btn:hover {
+      transform: translateY(-6px) scale(1.08);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Active — физика нажатия */
+    header nav a.btn:active {
+      transform: translateY(0) scale(0.95);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Плавное появление элементов */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Базовые стили для больших экранов — у тебя уже должны быть */
+
+    @media (max-width: 768px) {
+      /* Для планшетов и небольших экранов */
+
+      .grid {
+        display: block;
+        /* перестроить сетку в колонку */
+      }
+
+      .card {
+        margin-bottom: 20px;
+        width: 100%;
+        /* карты занимают всю ширину контейнера */
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .service-desc {
+        padding: 10px;
+      }
+
+      /* Можно уменьшить размеры шрифтов */
+      h2,
+      h3 {
+        font-size: 1.2em;
+      }
+
+      button.action-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Для телефонов */
+
+      h2 {
+        font-size: 1.1em;
+      }
+
+      h3 {
+        font-size: 1em;
+      }
+
+      p {
+        font-size: 0.9em;
+      }
+
+      .action-btn {
+        font-size: 0.9em;
+        padding: 10px;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    @media (max-width: 480px) {
+      #toTop {
+        font-size: 18px;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+
+    /* Добавь этот блок в конец твоего CSS */
+
+    @media (max-width: 768px) {
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      button.action-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.2em;
+      }
+
+      h3 {
+        font-size: 1em;
+      }
+
+      p {
+        font-size: 0.9em;
+      }
+
+      button.action-btn {
+        font-size: 0.9em;
+        padding: 10px;
+      }
+
+      #toTop {
+        font-size: 18px;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+
+    /* === Общий фон с изображением === */
+
+
+    /* === Плавающий градиент поверх фона (анимация) === */
+    body {
+      position: relative;
+      overflow-x: hidden;
+      margin: 0;
+      font-family: Arial, sans-serif;
+
+      /* Фон */
+      background: url('https://4kwallpapers.com/images/walls/packs/370.jpg') center center / cover no-repeat fixed;
+    }
+
+    /* Если хочешь добавить лёгкий градиент поверх фона */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @keyframes floatBG {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(-30px, -20px);
+      }
+
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    /* === Светлая тема: полупрозрачный бело-серый слой поверх фона === */
+    body.light-theme::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(240, 240, 240, 0.6));
+      z-index: -1;
+      pointer-events: none;
+      /* не мешает кликам */
+    }
+
+    /* === Текст: чёрный в светлой теме === */
+    body.light-theme {
+      color: #000;
+    }
+
+    /* Текст в светлой теме: заголовки, параграфы и т.д. */
+    body.light-theme h1,
+    body.light-theme h2,
+    body.light-theme h3,
+    body.light-theme h4,
+    body.light-theme h5,
+    body.light-theme h6,
+    body.light-theme p,
+    body.light-theme span,
+    body.light-theme div,
+    body.light-theme a {
+      color: #000 !important;
+    }
+
+    /* === Кнопки: не меняются в светлой теме === */
+    button,
+    input[type="button"],
+    input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    /* === Шапка в светлой теме === */
+    body.light-theme header {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.8));
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      color: #000;
+      padding: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* === Карточка героя с анимацией === */
+    .hero-card {
+      transform: translateX(30px);
+      opacity: 0;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card.visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    /* Карточки слегка подпрыгивают и увеличиваются при наведении */
+    .service-item,
+    .portfolio-item,
+    .price-card,
+    .review,
+    .card {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .service-item:hover,
+    .portfolio-item:hover,
+    .price-card:hover,
+    .review:hover,
+    .card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ================= Плавный перелив фона body с твоей картиной ================= */
+
+    /* ==== Заголовки и текст ==== */
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0 0 15px 0;
+      line-height: 1.5;
+    }
+
+    /* ================= Кнопки ================= */
+    button {
+      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
+      background-size: 400% 400%;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      animation: rgbFlow 6s linear infinite;
+    }
+@keyframes rgbFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes buttonGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.action-btn,
+.youtube-btn,
+button {
+  background-size: 200% 200%;
+  animation: rgbFlow 8s ease-in-out infinite;
+}
+
+
+    .action-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ================= Микроанимация карточек ================= */
+    .page .card,
+    .page .service-item,
+    .page .portfolio-item,
+    .page .price-card,
+    .page .review {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .page .card:hover,
+    .page .service-item:hover,
+    .page .portfolio-item:hover,
+    .page .price-card:hover,
+    .page .review:hover {
+      transform: scale(1.02) translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .page .card:hover img,
+    .page .service-item:hover img,
+    .page .portfolio-item:hover img,
+    .page .price-card:hover img,
+    .page .review:hover img {
+      transform: scale(1.1);
+      transition: transform 0.4s ease;
+    }
+
+    /* ================= Красивые заголовки секций ================= */
+    .page h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #8e2de2, #4a00e0, #ff0080, red);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradientShift 8s ease infinite;
+      margin-bottom: 1.5rem;
+    }
+
+    @keyframes textGradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .promo-video {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  opacity: 0.9;
+  z-index: 5;
+}
+.promo-video {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 260px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 5px;
+  background: radial-gradient(circle at center, rgba(40,40,60,0.8), rgba(10,10,20,0.9));
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6); /* тень по умолчанию */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 1.2s ease;
+}
+
+.promo-video:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 35px rgba(0, 0, 0, 0.59),      /* усиленная тень */
+    0 0 15px 5px rgba(8, 0, 255, 0.7); /* подсветка фиолетовым по краям */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================= 📱 АДАПТАЦИЯ ПОД ТЕЛЕФОН ========================= */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+    height: auto;
+  }
+
+  .brand {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  nav a.btn {
+    font-size: 14px;
+    padding: 8px 14px;
+    width: 90%;
+    text-align: center;
+  }
+
+  /* HERO */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .hero .left h1 {
+    font-size: 22px;
+  }
+
+  .hero-card {
+    margin-top: 18px;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  /* GRID — карточки, услуги, портфолио */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card img,
+  .service-item img,
+  .portfolio-item img {
+    height: 180px;
+  }
+
+  /* Текст */
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  /* Кнопка вверх */
+  #toTop {
+    bottom: 14px;
+    right: 14px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  /* Видео */
+  .promo-video {
+    width: 100%;
+    height: auto;
+    margin-top: 14px;
+  }
+}
+
+/* ========================= 📱 Очень маленькие экраны (до 480px) ========================= */
+@media (max-width: 480px) {
+  nav a.btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .hero .left h1 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .card img,
+  .service-item img,
+  .portfolio-item img {
+    height: 150px;
+  }
+}
+.youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent3));
+  background-size: 200% 200%;
+  color: #fff;
+  padding: 10px 18px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.5s ease, transform 0.2s ease;
+  animation: gradientShift 4s ease infinite;
+}
+
+.youtube-btn:hover {
+  transform: translateY(-2px);
+  background-position: 100% 0;
+}
+
+.youtube-icon {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 0 4px rgba(150, 100, 255, 0.6));
+}
+
+/* subtle moving gradient */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #8a2be2,  red, blue);
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.4);
+}
+
+.youtube-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(51, 153, 255, 0.7);
+}
+
+.youtube-icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+/* ====== Переливающиеся кнопки ====== */
+.action-btn,
+button,
+.youtube-flat-btn {
+  position: relative;
+  background: linear-gradient(270deg, #8a2be2, #3399ff, #8a2be2);
+  background-size: 300% 300%;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  animation: gradientFlow 6s linear infinite;
+}
+
+.action-btn:hover,
+button:hover,
+.youtube-flat-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ====== Градиент-анимация ====== */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* теперь всё по левому краю */
+  gap: 1rem;
+  text-align: left;
+}
+
+.contact-phone {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--accent3);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.contact-phone:hover {
+  color: var(--accent2);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(270deg, var(--accent1), var(--accent3), var(--accent2));
+  background-size: 400% 400%;
+  animation: buttonGradient 6s linear infinite;
+  box-shadow: 0 0 10px rgba(100, 100, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(150, 150, 255, 0.6);
+}
+
+.contact-btn .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.youtube {
+  background: linear-gradient(270deg, #ff0000, #b30000, #ff3333);
+}
+
+.telegram {
+  background: linear-gradient(270deg, #229ED9, #0088cc, #33ccff);
+}
+.contact-btn.instagram {
+  background: radial-gradient(circle at 30% 107%,  
+               #d6249f 55%, #285AEB 50%);
+  color: white;
+}
+
+.contact-btn.whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+
+.contact-btn.email {
+  background-color: #EA4335;
+  color: white;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <header role="banner" aria-label="Шапка сайта">
+    <div class="brand">
+   <div class="logo" aria-hidden="true">
+  <img src="logo.jpg" alt="Freelance" style="width: 140px; height: auto;">
+</div>
+      <h2><span style="color:darkblue;">Studio</span><span style="color:blue;">Ikramov</span></h2>
+    </div>
+    <nav aria-label="Главное меню">
+      <a class="btn" href="#main"><span>Главное</span></a>
+      <a class="btn" href="#stats"><span>Цифры</span></a>
+      <a class="btn" href="#services"><span>Услуги</span></a>
+      <a class="btn" href="#portfolio"><span>Портфолио</span></a>
+      <a class="btn" href="#pricing"><span>Цены</span></a>
+      <a class="btn" href="#reviews"><span>Отзывы</span></a>
+      <a class="btn" href="#contact"><span>Контакты</span></a>
+ 
+    </nav>
+  </header>
+
+  <main id="main-region" role="main">
+
+    <!-- ================= HERO ================= -->
+    <!-- ================= HERO ================= -->
+    <section id="main" class="page active" aria-labelledby="hero-title">
+      <div class="hero">
+        <div class="left">
+          <h1 id="hero-title" class="fade-in" data-delay="1">
+            Привет — я <strong>Асадбек</strong>, фрилансер по vsc создаю сайты-визитки логотипы
+          </h1>
+          <p class="fade-in" data-delay="2">
+            сайты-визитки, логотипы Работаю быстро и аккуратно. Всегда довожу дело до результата.
+          </p>
+          <div class="actions fade-in" data-delay="3">
+            <a class="action-btn" href="https://t.me/Asadbek_friliance?text=Здравствуйте!%20Я%20хочу%20заказать%20у%20вас%20.... "target=_blank" rel="noopener"><span>Связаться в
+                Telegram</span></a>
+            <button class="action-btn" id="openBriefForm"><span>Оставить бриф</span></button>
+            <div id="briefFormContainer" style="display:none; margin-top:12px;">
+              <form action="https://formspree.io/f/mnqzwkld" method="POST" target="_blank">
+                <input type="text" name="name" placeholder="Ваше имя" required class="fade-in" data-delay="4">
+                <input type="email" name="email" placeholder="m94630012@gmail.com" required class="fade-in"
+                  data-delay="5">
+                <textarea name="message" placeholder="Описание задачи" required class="fade-in"
+                  data-delay="6"></textarea>
+                <button type="submit" class="action-btn fade-in" data-delay="7"><span>Отправить</span></button>
+              </form>
+            </div>
+          </div>
+          <div style="margin-top:18px" class="fade-in" data-delay="8">
+            <h3>Как работаю</h3>
+            <ol style="color:var(--muted);padding-left:18px;margin-top:8px">
+              <li>Вы присылаете задачу → Я готовлю макет → Согласуем правки → Верстаю и сдаю проект</li>
+            </ol>
+          </div>
+        </div>
+        <aside class="hero-card fade-in" data-delay="3" aria-label="Контакты и ключи">
+    <p id="phone" style="cursor:pointer;">+998 (91) 407-07-70</p>
+          <p class="muted" style="margin-top:8px">
+            Telegram:
+            <a class="action-btn"  href="https://t.me/Asadbek_friliance?text=Здравствуйте!%20Я%20хочу%20заказать%20у%20вас%20.... "target=_blank"
+              rel="noopener"><span>@Asadbek_friliance</span></a>
+          </p>
+        </aside>
+      </div>
+<video autoplay muted loop playsinline class="promo-video">
+  <source src="promo.mp4" type="video/mp4">
+</video>
+
+
+    </section>
+    <!-- ================= СТАТИСТИКА ================= -->
+
+    <section id="stats" class="page" aria-labelledby="stats-title">
+      <h2 id="stats-title" class="fade-in" data-delay="1">Моя Статистика</h2>
+      <div class="grid">
+        <div class="card glow-edge fade-in" data-delay="2">
+          <div class="service-desc">
+            <h3 class="counter" data-target="50">50</h3>
+            <p>Клиентов</p>
+          </div>
+        </div>
+        <div class="card glow-edge fade-in" data-delay="3">
+          <div class="service-desc">
+            <h3 class="counter" data-target="1200">1200</h3>
+            <p>Часов Работы</p>
+          </div>
+        </div>
+        <div class="card glow-edge fade-in" data-delay="4">
+          <div class="service-desc">
+            <h3 class="counter" data-target="25">25</h3>
+            <p>Проектов</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================= УСЛУГИ ================= -->
+    <section id="services" class="page" aria-labelledby="services-title">
+      <h2 id="services-title" class="fade-in" data-delay="1">Мои услуги</h2>
+      <div class="grid">
+        <div class="service-item glow-edge fade-in" data-delay="2">
+          <img
+            src="https://media.istockphoto.com/id/2209051777/photo/artificial-intelligence-icon-on-the-digital-binary-code-background-3d-illustration.webp?a=1&b=1&s=612x612&w=0&k=20&c=7NEcegU_yf7nH30ujTf52eb09yzRWKN3tvNf-1a64WU="
+            alt="UI/UX дизайн">
+          <div class="service-desc">
+            <h3 class="fade-in" data-delay="3">Создание логотипов</h3>
+            <p class="fade-in" data-delay="4">Современный логотипы для сайтов и приложений.</p>
+            <a class="action-btn"
+              href="https://t.me/Asadbek_friliance?text=Здравствуйте!%20Я%20хочу%20заказать%20у%20вас%20логотип."
+              target="_blank">
+              <span>Заказать услугу</span>
+            </a>
+
+          </div>
+        </div>
+        <div class="service-item glow-edge fade-in" data-delay="6">
+          <img src="https://images.unsplash.com/photo-1543013309-0d1f4edeb868?w=600&auto=format&fit=crop&q=60"
+            alt="UI/UX дизайн">
+          <div class="service-desc">
+            <h3 class="fade-in" data-delay="7">Сайт визитки</h3>
+            <p class="fade-in" data-delay="8">Современные сайты для ваших курсов, компании и бренда.</p>
+            <a class="action-btn"
+              href="https://t.me/Asadbek_friliance?text=Здравствуйте!%20Я%20хочу%20заказать%20у%20вас%20сайт-визитку."
+              target="_blank">
+              <span>Заказать услугу</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ПОРТФОЛИО ================= -->
+    <section id="portfolio" class="page" aria-labelledby="portfolio-title">
+      <h2 id="portfolio-title" class="fade-in" data-delay="1">Портфолио</h2>
+      <div class="grid">
+        <div class="portfolio-item glow-edge fade-in" data-delay="2">
+          <img
+            src="https://media.istockphoto.com/id/1013820482/photo/designer-team-sketching-a-logo-in-digital-design-studio-on-computer-creative-graphic-drawing.webp?a=1&b=1&s=612x612&w=0&k=20&c=V_DONs-ktgM5dGXWe1fAX4fOo8P5yr-lOPVIdHpTNFU="
+            alt="Проект 1">
+          <div class="service-desc">
+            <h3 class="fade-in" data-delay="3">Проект 1</h3>
+            <p class="fade-in" data-delay="4">Логотип для бизнеса</p>
+          </div>
+        </div>
+        <div class="portfolio-item glow-edge fade-in" data-delay="5">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=60"
+            alt="Проект 2">
+          <div class="service-desc">
+            <h3 class="fade-in" data-delay="6">Проект 2</h3>
+            <p class="fade-in" data-delay="7">Сайт-визитка для бизнеса</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================= ЦЕНЫ ================= -->
+    <section id="pricing" class="page" aria-labelledby="pricing-title">
+      <h2 id="pricing-title" class="fade-in" data-delay="1">Цены на услуги</h2>
+      <div class="grid">
+        <div class="price-card glow-edge fade-in" data-delay="2">
+          <div class="service-desc">
+            <h3 class="fade-in" data-delay="3">Логотип</h3>
+            <p class="fade-in" data-delay="4">от 30$</p>
+          </div>
+        </div>
+        <div class="price-card glow-edge fade-in" data-delay="5">
+          <div class="service-desc">
+            <h3 class="fade-in" data-delay="6">Сайт-визитка</h3>
+            <p class="fade-in" data-delay="7">от 90$</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ОТЗЫВЫ ================= -->
+<section id="reviews" class="page" aria-labelledby="reviews-title">
+  <h2 id="reviews-title" class="fade-in" data-delay="1">Отзывы</h2>
+
+  <div class="grid">
+    <div class="review glow-edge fade-in" data-delay="2" style="display:flex;align-items:center;gap:12px;">
+      <img src="https://via.placeholder.com/48" alt="Рома И." class="review-avatar">
+      <div class="service-desc">
+        <p class="fade-in" data-delay="4">"Сайт работает быстро и выглядит стильно!"</p>
+        <p class="muted fade-in" data-delay="5">— Рома И.</p>
+      </div>
+    </div>
+
+    <div class="review glow-edge fade-in" data-delay="6" style="display:flex;align-items:center;gap:12px;">
+      <img src="https://via.placeholder.com/48" alt="Иван П." class="review-avatar">
+      <div class="service-desc">
+        <p class="fade-in" data-delay="8">"Логотип отражает идею бренда с первого раза."</p>
+        <p class="muted fade-in" data-delay="9">— Иван П.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://t.me/Asadbek_friliance?text=Хочу%20оставить%20отзыв%20о%20вашей%20работе" 
+     target="_blank"
+     class="contact-btn telegram"
+     style="margin-top:20px;display:inline-block;">
+    ✍️ Оставить отзыв
+  </a>
+</section>
+
+    <!-- ================= КОНТАКТЫ ================= -->
+<section id="contact" class="page" aria-labelledby="contact-title">
+  <h2 id="contact-title" class="fade-in" data-delay="1">Контакты</h2>
+  <h3 class="fade-in" data-delay="2">Связаться со мной</h3>
+
+  <div class="contact-container fade-in" data-delay="3">
+    <p id="phone" class="contact-phone" style="cursor:pointer;">📞 +998 (91) 407-07-70</p>
+
+    <div id="copy-toast" style="
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: translateY(20px);
+      pointer-events: none;
+      z-index: 1000;
+    ">Номер скопирован!</div>
+
+    <div class="contact-links">
+      <a href="https://youtube.com/@studioikramov?si=R4GRFGxFNm3OZZPv"
+         target="_blank"
+         class="contact-btn youtube">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+             alt="YouTube"
+             class="icon">
+        <span>YouTube канал</span>
+      </a>
+
+      <a href="https://t.me/Asadbek_friliance?text=Здравствуйте!%20Я%20хочу%20заказать%20у%20вас%20...." 
+         target="_blank"
+         class="contact-btn telegram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+             alt="Telegram"
+             class="icon">
+        <span>Telegram</span>
+      </a>
+
+      <a href="https://www.instagram.com/studioikramov"
+         target="_blank"
+         class="contact-btn instagram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+             alt="Instagram"
+             class="icon">
+        <span>Instagram</span>
+      </a>
+      </a>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<script>
+const phoneEl = document.getElementById('phone');
+const toast = document.getElementById('copy-toast');
+const phoneNumber = '+998914070770'; // формат без скобок и пробелов для tel и копирования
+
+phoneEl.addEventListener('click', async () => {
+  try {
+    // Копируем номер
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(phoneNumber);
+    } else {
+      // fallback для старых браузеров
+      const textarea = document.createElement('textarea');
+      textarea.value = phoneNumber;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+
+    // Показать сообщение
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(20px)';
+    }, 1500);
+
+  } catch (err) {
+    console.error('Не удалось скопировать номер', err);
+  }
+});
+
+// При клике на номер — также можно открыть звонок (если на мобильном)
+phoneEl.addEventListener('dblclick', () => {
+  window.open(`tel:${phoneNumber}`);
+});
+</script>
+
+    <button id="toTop" aria-label="Наверх">↑</button>
+    <script>
+      // Скрипт навигации страниц
+      const pages = document.querySelectorAll('.page');
+      document.querySelectorAll('nav a').forEach(a => {
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          const target = document.querySelector(a.getAttribute('href'));
+          pages.forEach(p => p.classList.remove('active'));
+          target.classList.add('active');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+      // Скролл наверх
+      const toTop = document.getElementById('toTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { toTop.classList.add('show'); }
+        else { toTop.classList.remove('show'); }
+      });
+      toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      // Анимация цифр
+      // Анимация цифр при входе в зону видимости
+      const counters = document.querySelectorAll('.counter');
+      const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const step = Math.ceil(target / 100); // шаг скорости
+        const interval = setInterval(() => {
+          count += step;
+          if (count >= target) {
+            counter.innerText = target;
+            clearInterval(interval);
+          } else {
+            counter.innerText = count;
+          }
+        }, 30);
+      };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.counter').forEach(counter => animateCounter(counter));
+            observer.unobserve(entry.target); // запуск только один раз
+          }
+        });
+      }, { threshold: 0.3 });
+      const statsSection = document.getElementById('stats');
+      observer.observe(statsSection);
+
+      let statsPlayed = false;
+      window.addEventListener('scroll', () => {
+        const statsSection = document.getElementById('stats');
+        const rect = statsSection.getBoundingClientRect();
+        if (!statsPlayed && rect.top < window.innerHeight) {
+          counters.forEach(c => animateCounter(c));
+          statsPlayed = true;
+        }
+      });
+      const openBriefBtn = document.getElementById('openBriefForm');
+      const briefFormContainer = document.getElementById('briefFormContainer');
+      openBriefBtn.addEventListener('click', () => {
+        briefFormContainer.style.display = briefFormContainer.style.display === 'none' ? 'block' : 'none';
+      });
+      // Функция появления элементов с задержкой
+      function showFadeInElements(container) {
+        const fadeIns = container.querySelectorAll('.fade-in');
+        fadeIns.forEach(el => {
+          const delayAttr = el.getAttribute('data-delay'); // получаем data-delay
+          const delayTime = delayAttr ? parseInt(delayAttr, 10) * 150 : 0;
+          setTimeout(() => el.classList.add('visible'), delayTime);
+        });
+      }
+      // Инициализация при клике на навигацию
+      document.querySelectorAll('header nav a').forEach(a => {
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          const target = document.querySelector(a.getAttribute('href'));
+          document.querySelectorAll('.page').forEach(p => {
+            p.classList.remove('active');
+            p.querySelectorAll('.fade-in').forEach(el => el.classList.remove('visible'));
+          });
+          target.classList.add('active');
+          showFadeInElements(target);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+      // Инициализация для первой видимой секции
+      document.querySelectorAll('.page.active').forEach(p => showFadeInElements(p));
+      const themeToggle = document.getElementById('themeToggle');
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+      });
+      document.getElementById('phone').addEventListener('click', () => {
+        navigator.clipboard.writeText('+998 (91) 407-07-70');
+        alert('Номер скопирован!');
+      });
+      
+    </script>
+    <script>
+  const phoneElement = document.getElementById("phone");
+
+  phoneElement.addEventListener("click", async () => {
+    const number = phoneElement.textContent.trim();
+    try {
+      await navigator.clipboard.writeText(number);
+      phoneElement.style.transition = "color 0.3s ease";
+      phoneElement.style.color = "#8a2be2"; // фиолетовый фирменный
+      setTimeout(() => (phoneElement.style.color = ""), 800);
+    } catch (err) {
+      alert("Не удалось скопировать номер 😢");
+    }
+  });
+</script>
+
+</body>
+</html>
